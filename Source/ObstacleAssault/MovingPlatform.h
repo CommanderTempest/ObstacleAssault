@@ -24,9 +24,16 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
   // 'exports' the variable
-	UPROPERTY(EditAnywhere)
-	int32 MyInt = 10;
+	// UPROPERTY(EditAnywhere)
+	// int32 MyInt = 10;
 
-	UPROPERTY(EditAnywhere)
-	float myFloat = 5.6;
+  // adds new property in properties panel for Moving Platform
+	UPROPERTY(EditAnywhere, Category="Moving Platform")
+	FVector PlatformVelocity = FVector(100, 0, 0);
+
+	UPROPERTY(EditAnywhere, Category="Moving Platform")
+	float MoveDistance = 100;
+
+	FVector StartLocation;
+	
 };
