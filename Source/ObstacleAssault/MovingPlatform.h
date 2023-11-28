@@ -23,6 +23,8 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+private:
+
   // 'exports' the variable
 	// UPROPERTY(EditAnywhere)
 	// int32 MyInt = 10;
@@ -32,8 +34,17 @@ public:
 	FVector PlatformVelocity = FVector(100, 0, 0);
 
 	UPROPERTY(EditAnywhere, Category="Moving Platform")
+	FRotator RotationVelocity;
+
+	UPROPERTY(EditAnywhere, Category="Moving Platform")
 	float MoveDistance = 100;
 
 	FVector StartLocation;
-	
+
+	void MovePlatform(float DeltaTime);
+	void RotatePlatform(float DeltaTime);
+
+	// const prevents modification of class variables
+	bool ShouldPlatformReturn() const;
+	float GetDistanceMoved() const;
 };
